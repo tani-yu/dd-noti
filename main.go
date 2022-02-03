@@ -6,12 +6,12 @@ import (
 )
 
 func main() {
-	ss := dd.GetMuteHostList()
+	mh := dd.GetMuteHostList()
 	mm := dd.GetMuteMonitorList()
 	//for _, data := range mm {
 	//	fmt.Println(data.GetHostName())
 	//	fmt.Println(data.GetMInfo())
 	//}
-	slack.PostMessageHost(ss)
+	slack.PostMessageHost(mh)
 	slack.PostMessageMonitor(mm)
 }

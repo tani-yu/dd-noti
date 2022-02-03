@@ -25,7 +25,7 @@ func PostMessageMonitor(mm []datadog.MutedMonitor) {
 	}
 }
 
-func PostMessageHost(ss []string) {
+func PostMessageHost(mh []string) {
 	// アクセストークンを使用してクライアントを生成する
 	token := os.Getenv("SLACK_API_TOKEN")
 	channel := os.Getenv("SLACK_CHANEL")
@@ -33,7 +33,7 @@ func PostMessageHost(ss []string) {
 
 	attachment := slack.Attachment{
 		Text:   "muteになっているHostお知らせします",
-		Fields: createAttachmentFieldsFromString(ss),
+		Fields: createAttachmentFieldsFromString(mh),
 	}
 
 	// MsgOptionText() の第二引数に true を設定すると特殊文字をエスケープする
@@ -63,9 +63,9 @@ func createStringFromMap(mm map[string]int64) string {
 	return rs
 }
 
-func createAttachmentFieldsFromString(ss []string) []slack.AttachmentField {
+func createAttachmentFieldsFromString(mh []string) []slack.AttachmentField {
 	var af []slack.AttachmentField
-	for _, data := range ss {
+	for _, data := range mh {
 		af = append(af, slack.AttachmentField{
 			Title: "HostName:",
 			Value: data,
