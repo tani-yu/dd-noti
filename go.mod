@@ -1,4 +1,4 @@
-module ghe.ca-tools.org/tani-yu/dd-noti
+module github.com/tani-yu/dd-noti
 
 go 1.17
 
