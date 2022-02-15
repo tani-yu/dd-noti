@@ -10,7 +10,7 @@ import (
 func PostMessageMonitor(mm []datadog.MutedMonitor) {
 	// アクセストークンを使用してクライアントを生成する
 	token := os.Getenv("SLACK_API_TOKEN")
-	channel := os.Getenv("SLACK_CHANEL")
+	channel := os.Getenv("SLACK_CHANNEL")
 	c := slack.New(token)
 
 	attachment := slack.Attachment{
@@ -28,7 +28,7 @@ func PostMessageMonitor(mm []datadog.MutedMonitor) {
 func PostMessageHost(mh []string) {
 	// アクセストークンを使用してクライアントを生成する
 	token := os.Getenv("SLACK_API_TOKEN")
-	channel := os.Getenv("SLACK_CHANEL")
+	channel := os.Getenv("SLACK_CHANNEL")
 	c := slack.New(token)
 
 	attachment := slack.Attachment{
